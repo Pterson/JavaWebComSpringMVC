@@ -8,24 +8,14 @@
  	</welcome-file-list> 
  	
  	<servlet>
- 		<servlet-name>HelloWord</servlet-name>
- 		<servlet-class>controller.HelloServLet</servlet-class>
+ 		<servlet-name>HelloWordServlet</servlet-name>
+ 		<servlet-class>controller.HelloWordServlet</servlet-class>
  	</servlet>
  	
  	<servlet-mapping>
- 		<servlet-name>HelloWord</servlet-name>
- 		<url-pattern>/hello</url-pattern>
- 	</servlet-mapping>
- 	
- 	
- 	
- <servlet>
-		<servlet-name>CadastroUsuario</servlet-name>
-		<servlet-class>controller.CadastroServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>CadastroUsuario</servlet-name>
-		<url-pattern>/cadastroUsuario</url-pattern>
-	</servlet-mapping>
+ 		<servlet-name>HelloWordServlet</servlet-name>
+ 		<url-pattern>/helloServlet</url-pattern>
+ 	</servlet-mapping> 	
+
 	
  </web-app>
