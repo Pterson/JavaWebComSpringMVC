@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista de Motoristas</title>
+</head>
+<body>
+	
+	 <h1>Lista de Motorista</h1>
+	 
+	 	<div th:each="motorista : ${motorista}" >
+		
+			<p><span th:text="${motorista.nome}"></p>
+			<p><span th:text="${motorista.endereco}"></p>
+			<p><span th:text="${motorista.idade}"></p>
+			<p><span th:text="${motorista.qtdHorasTrabalhadasMes}"></p>
+			<p><span th:text="${motorista.vlrHoraTrabalhada}"></p>
+			<p><span th:text="${motorista.salario}"></p>
+			
+		</div>
+
+</body>
+</html>
