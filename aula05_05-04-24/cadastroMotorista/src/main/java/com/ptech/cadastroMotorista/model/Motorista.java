@@ -2,12 +2,15 @@ package com.ptech.cadastroMotorista.model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "tb_motorista") //anotação para criar a tabela conforme sua necessidade
 public class Motorista implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -15,12 +18,23 @@ public class Motorista implements Serializable {
 	@Id // Chave Primaria
 	@GeneratedValue(strategy = GenerationType.AUTO) // Informa que vai gerar automatico
 	private long id;
-
+	
+	@Column(name="NOME")
 	private String nome;
+	
+	@Column(name="ENDERECO")
 	private String endereco;
+	
+	@Column(name="IDADE")
 	private int idade;
+	
+	@Column(name="QTD_HORAS_TRABALHADAS_MES")
 	private int qtdHorasTrabalhadasMes;
+	
+	@Column(name="VLR_HORA_TRABALHADA")
 	private double vlrHoraTrabalhada;
+	
+	@Column(name="SALARIO")
 	private double salario;
 
 	public String getNome() {
