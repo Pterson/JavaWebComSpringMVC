@@ -4,20 +4,49 @@
 <meta charset="ISO-8859-1">
 <title>Lista de Motoristas</title>
 </head>
+
 <body>
 	
-	 <h1>Lista de Motorista</h1>
-	 
-	 	<div th:each="motorista : ${motorista}" >
+	 <h1>Lista de Motorista</h1>	 
+
+	<table>
+				
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOME</th>
+				<th>ENDERECO</th>
+				<th>QTD. HORAS TRABALHADAS MES</th>
+				<th>VALOR HORA TRABALHADA</th>
+				<th>SALARIO</th>			
+			</tr>	
+		</thead>
+				
+		<tbody>			
+			<tr th:each="motorista : ${motoristas}">				
+				<td th:text="${motorista.id}"></td>
+				<td th:text="${motorista.nome}"></td>
+				<td th:text="${motorista.endereco}"></td>
+				<td th:text="${motorista.qtdHorasTrabalhadasMes}"></td>
+				<td th:text="${motorista.vlrHoraTrabalhada}"></td>
+				<td th:text="${motorista.salario}"></td>				
+			</tr>			
+		</tbody>
 		
-			<p><span th:text="${motorista.nome}"></p>
-			<p><span th:text="${motorista.endereco}"></p>
-			<p><span th:text="${motorista.idade}"></p>
-			<p><span th:text="${motorista.qtdHorasTrabalhadasMes}"></p>
-			<p><span th:text="${motorista.vlrHoraTrabalhada}"></p>
-			<p><span th:text="${motorista.salario}"></p>
-			
-		</div>
+	</table>	 
+	 
+	
+	 
+	 <!-- Utilizando Lista
+			<div th:each="motorista : ${motorista}" >	
+				<p><span th:text="${motorista.nome}"></p>
+				<p><span th:text="${motorista.endereco}"></p>
+				<p><span th:text="${motorista.idade}"></p>
+				<p><span th:text="${motorista.qtdHorasTrabalhadasMes}"></p>
+				<p><span th:text="${motorista.vlrHoraTrabalhada}"></p>
+				<p><span th:text="${motorista.salario}"></p>			
+			</div>		
+		-->
 
 </body>
 </html>

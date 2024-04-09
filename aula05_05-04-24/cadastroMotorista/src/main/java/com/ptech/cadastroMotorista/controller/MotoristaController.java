@@ -41,7 +41,7 @@ public class MotoristaController {
 		
 		List<Motorista> listaMotorista = (List<Motorista>) motoristaRepository.findAll();
 		
-		motoristaMV.addObject("motorista", listaMotorista);
+		motoristaMV.addObject("motoristas", listaMotorista);
 		
 		return motoristaMV;
 	}

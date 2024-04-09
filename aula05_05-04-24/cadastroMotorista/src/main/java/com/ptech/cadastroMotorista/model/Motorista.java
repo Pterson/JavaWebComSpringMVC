@@ -17,7 +17,7 @@ public class Motorista implements Serializable {
 
 	@Id // Chave Primaria
 	@GeneratedValue(strategy = GenerationType.AUTO) // Informa que vai gerar automatico
-	private long id;
+	private long id;	
 	
 	@Column(name="NOME")
 	private String nome;
@@ -36,6 +36,14 @@ public class Motorista implements Serializable {
 	
 	@Column(name="SALARIO")
 	private double salario;
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}	
 
 	public String getNome() {
 		return nome;
