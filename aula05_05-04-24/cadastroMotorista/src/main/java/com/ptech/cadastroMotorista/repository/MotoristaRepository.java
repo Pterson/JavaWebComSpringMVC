@@ -8,4 +8,6 @@ import com.ptech.cadastroMotorista.model.Motorista;
 @Repository
 public interface MotoristaRepository extends CrudRepository<Motorista, String> {
 
+	Motorista findById(long id);
+
 }

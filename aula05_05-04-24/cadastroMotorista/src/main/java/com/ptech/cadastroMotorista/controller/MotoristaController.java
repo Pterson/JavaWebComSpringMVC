@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ptech.cadastroMotorista.model.Motorista;
@@ -44,6 +45,20 @@ public class MotoristaController {
 		motoristaMV.addObject("motoristas", listaMotorista);
 		
 		return motoristaMV;
+	}
+	
+	@RequestMapping("/deletar")
+	public String deletarMotorista(long id) {
+		
+		//Encontra o animal para deletar
+		Motorista motorista = motoristaRepository.findById(id);
+		
+		//Deleta o animal da base de dados
+		motoristaRepository.delete(motorista);
+		
+		//Direciono para a lista
+		return"redirect:/motoristaList";
+		
 	}
 	
 

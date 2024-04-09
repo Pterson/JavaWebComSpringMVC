@@ -18,7 +18,8 @@
 				<th>ENDERECO</th>
 				<th>QTD. HORAS TRABALHADAS MES</th>
 				<th>VALOR HORA TRABALHADA</th>
-				<th>SALARIO</th>			
+				<th>SALARIO</th>
+				<th>AÇÃO</th>			
 			</tr>	
 		</thead>
 				
@@ -29,7 +30,8 @@
 				<td th:text="${motorista.endereco}"></td>
 				<td th:text="${motorista.qtdHorasTrabalhadasMes}"></td>
 				<td th:text="${motorista.vlrHoraTrabalhada}"></td>
-				<td th:text="${motorista.salario}"></td>				
+				<td th:text="${motorista.salario}"></td>	
+				<td><a th:href="${(#mvc.url('MC#deletarMotorista').arg(0, motorista.id)).build()}" >Deletar</a></td>			
 			</tr>			
 		</tbody>
 		
