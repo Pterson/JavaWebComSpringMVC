@@ -2,14 +2,26 @@
 <html>
 	
 <head>
+	
     <meta charset="UTF-8">   
-    <title>Cadastro de Motorista</title>    
+    <title>Cadastro de Motorista</title>
+    
+<!-- Adicionando Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </head>
 
 <body>
     <h1>Cadastro de Motorista</h1>
     
+    <div class="container">
     <form method="POST">
+		
+		<div class="form-group">			
         <label for="nome">Nome:</label><br>
         <input type="text" id="nome" name="nome"><br>
         
@@ -23,11 +35,12 @@
         <input type="number" id="qtdHorasTrabalhadasMes" name="qtdHorasTrabalhadasMes"><br>
         
         <label for="vlrHoraTrabalhada">Valor da Hora Trabalhada:</label><br>
-        <input type="text" id="vlrHoraTrabalhada" name="vlrHoraTrabalhada"><br>
-        
+        <input type="text" id="vlrHoraTrabalhada" name="vlrHoraTrabalhada"><br>         
+        </div>       
        
         <input type="submit" value="Cadastrar">
-    </form>    
+    </form>
+    </div>    
 </body>
 
 </html>

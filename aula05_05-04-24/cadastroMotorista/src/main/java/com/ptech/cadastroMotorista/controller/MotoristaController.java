@@ -1,6 +1,5 @@
 package com.ptech.cadastroMotorista.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ptech.cadastroMotorista.model.Motorista;
 import com.ptech.cadastroMotorista.repository.MotoristaRepository;
+import com.ptech.cadastroMotorista.service.CalculaSalario;
+
+import java.util.List;
+
+
 
 @Controller
 public class MotoristaController {
@@ -27,8 +31,12 @@ public class MotoristaController {
 	public String enviarFormularioCadastro(Motorista motorista) {
 
 		// Calculo do salário
-		double salario = motorista.getQtdHorasTrabalhadasMes() * motorista.getVlrHoraTrabalhada();
-	    motorista.setSalario(salario);
+		//double salario = motorista.getQtdHorasTrabalhadasMes() * motorista.getVlrHoraTrabalhada();
+	    //motorista.setSalario(salario);
+	    //motoristaRepository.save(motorista);
+		
+        double salario = CalculaSalario.calcularSalario(motorista.getQtdHorasTrabalhadasMes(), motorista.getVlrHoraTrabalhada());
+        motorista.setSalario(salario);      
 		
 		motoristaRepository.save(motorista); // Salva no repositório
 
@@ -61,5 +69,30 @@ public class MotoristaController {
 		
 	}
 	
-
+	@RequestMapping("/editar")
+	public ModelAndView editarMotorista(long id) {
+	
+		Motorista motoristaENCONTRADO = motoristaRepository.findById(id);
+	
+		ModelAndView modelAndViewMotorista = new ModelAndView("editarMotorista");
+		
+		modelAndViewMotorista.addObject("motorista", motoristaENCONTRADO );
+		
+	
+		return modelAndViewMotorista;
+		
+	}
+	
+	@PostMapping("/editar")
+	public String editarFormularioCadastro(Motorista motorista) {
+		
+		double salario = CalculaSalario.calcularSalario(motorista.getQtdHorasTrabalhadasMes(), motorista.getVlrHoraTrabalhada());
+        motorista.setSalario(salario);
+		
+		motoristaRepository.save(motorista);
+		
+	
+		return "redirect:/motoristaList";
+		
+	}
 }

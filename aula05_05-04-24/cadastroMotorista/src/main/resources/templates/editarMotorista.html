@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+    <meta charset="UTF-8">   
+    <title>Editar de Motorista</title>    
+</head>
+
+<body>
+    <h1>Editando de Motorista</h1>
+    
+    <div th:each="motorista : ${motorista}">
+      <form method="POST">
+         
+         <label for="nome">Nome:</label><br>         
+         <input type="text" name="nome" th:value="${motorista.nome}"><br>
+         
+         <label for="endereco">Endereco:</label><br>         
+         <input type="text" name="endereco" th:value="${motorista.endereco}"><br>
+         
+         <label for="idade">Idade:</label><br>         
+         <input type="text" name="idade" th:value="${motorista.idade}"><br>
+         
+         <label for="qtdHorasTrabalhadasMes">Qtd. Horas Trabalhadas:</label><br>         
+         <input type="text" name="qtdHorasTrabalhadasMes" th:value="${motorista.qtdHorasTrabalhadasMes}"><br>
+         
+         <label for="vlrHoraTrabalhada">Vlr. Hora Trabalhada:</label><br>         
+         <input type="text" name="vlrHoraTrabalhada" th:value="${motorista.vlrHoraTrabalhada}"><br>         
+         
+        <input type="submit" value="Atualizar">
+     </form>
+    </div>    
+    
+</body>
+
+</html>

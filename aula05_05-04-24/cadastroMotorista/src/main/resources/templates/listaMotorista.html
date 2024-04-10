@@ -19,7 +19,8 @@
 				<th>QTD. HORAS TRABALHADAS MES</th>
 				<th>VALOR HORA TRABALHADA</th>
 				<th>SALARIO</th>
-				<th>AÇÃO</th>			
+				<th>DELETA</th>
+				<th>ATUALIZA</th>			
 			</tr>	
 		</thead>
 				
@@ -31,7 +32,8 @@
 				<td th:text="${motorista.qtdHorasTrabalhadasMes}"></td>
 				<td th:text="${motorista.vlrHoraTrabalhada}"></td>
 				<td th:text="${motorista.salario}"></td>	
-				<td><a th:href="${(#mvc.url('MC#deletarMotorista').arg(0, motorista.id)).build()}" >Deletar</a></td>			
+				<td><a th:href="${(#mvc.url('MC#deletarMotorista').arg(0, motorista.id)).build()}" >Deletar</a></td>
+				<td><a th:href="${(#mvc.url('MC#editarMotorista').arg(0, motorista.id)).build()}" >Atualizar</a></td>			
 			</tr>			
 		</tbody>
 		
