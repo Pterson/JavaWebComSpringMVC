@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Relatório de Estoque</title>
+</head>
+
+<body>
+	
+	 <h1>Relatório de Estoque</h1>
+	 
+	 <h2>Informações do Estoque</h2>
+
+
+  <!--  <p>Nome produto maior valor: <label th:text="${Relatorio.nomeProdutoMaiorValor}"></label></p>
+        <p>Nome produto menor valor: <label th:text="${Relatorio.nomeProdutoMenorValor}"></label></p> -->
+    
+    <div th:each="relatorio : ${Relatorio}">
+        <p>Produto maior valor: <label th:text="${relatorio.nomeProdutoMaiorValor}"></label></p>
+        <p>Valor do produto: <label th:text="${relatorio.produtoMaiorValor}"></label></p><br><br>
+        
+        <p>Produto menor valor: <label th:text="${relatorio.nomeProdutoMenorValor}"></label></p>
+        <p>Valor do produto: <label th:text="${relatorio.produtoMenorValor}"></label></p><br><br>
+        
+        <p>Valor Total do Estoque: <label th:text="${relatorio.valorTotalEstoque}"></label></p>
+    </div>		
+
+
+</body>
+</html>

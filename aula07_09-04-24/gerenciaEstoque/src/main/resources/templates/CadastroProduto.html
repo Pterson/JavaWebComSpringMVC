@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	
+    <meta charset="UTF-8">   
+    <title>Cadastro de Produto</title>
+    
+<!-- Adicionando Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</head>
+
+<body>
+    <h1>Cadastro de Produto</h1>
+    
+    <div class="container">
+    <form method="POST">
+		
+		<div class="form-group">			
+        <label for="nomeProduto">Nome do Produto:</label><br>
+        <input type="text" id="nomeProduto" name="nomeProduto"><br>
+        
+        <label for="precoUnitario">Preço Unitário:</label><br>
+        <input type="text" id="precoUnitario" name="precoUnitario"><br>
+        
+        <label for="qtdInicial">Quantidade Inicial:</label><br>
+        <input type="number" id="qtdInicial" name="qtdInicial"><br>               
+        </div>       
+       
+        <input type="submit" value="Cadastrar">
+    </form>
+    </div>    
+    
+</body>
+
+</html>

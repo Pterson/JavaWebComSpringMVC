@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista de Produtos</title>
+</head>
+
+<body>
+	
+	 <h1>Lista de Produtos</h1>	 
+
+	<table>
+				
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOME DO PRODUTO</th>
+				<th>PREÇO UNITÁRIO</th>
+				<th>DELETAR</th>
+				<th>ATUALIZAR</th>			
+			</tr>	
+		</thead>
+				
+		<tbody>			
+			<tr th:each="produto : ${produtos}">				
+				<td th:text="${produto.id}"></td> <!-- Exibe ID do produto -->
+				<td th:text="${produto.nomeProduto}"></td> <!-- Exibe nome do prdotuto -->
+				<td th:text="${produto.precoUnitario}"></td> <!-- Exibe o valor unitario do produto -->                						
+				<td><a th:href="${(#mvc.url('PC#deletarProduto').arg(0, produto.id)).build()}" >Deletar</a></td>
+				<td><a th:href="${(#mvc.url('PC#editarProduto').arg(0, produto.id)).build()}" >Atualizar</a></td>	
+			</tr>			
+		</tbody>
+		
+	</table> 
+
+</body>
+</html>
