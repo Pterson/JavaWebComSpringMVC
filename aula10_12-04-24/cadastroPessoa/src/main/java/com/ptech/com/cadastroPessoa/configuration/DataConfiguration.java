@@ -1,4 +1,4 @@
-package com.ptech.firstAPI.configuration;
+package com.ptech.com.cadastroPessoa.configuration;
 
 import javax.sql.DataSource;
 
