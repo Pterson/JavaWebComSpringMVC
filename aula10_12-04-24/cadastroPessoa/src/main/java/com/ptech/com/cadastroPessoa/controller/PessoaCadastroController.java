@@ -16,9 +16,9 @@ public class PessoaCadastroController {
     @Autowired
     PessoaCadastroRepository pessoaCadastroRepository;
     @PostMapping("/enviarCadastroPessoa") // Mapeia o endpoint para cadastro de pessoa via POST
-    public String cadastrarPessoa(@RequestBody PessoaCadastro pessoaCadastro) { //@ResponseBody - deu erro
+    public String cadastrarPessoa(@RequestBody PessoaCadastro pessoaCadastro) {
         pessoaCadastroRepository.save(pessoaCadastro);
-        return "A pessoa " + PessoaCadastro.getNome() + " foi cadastrada";
+        return "A pessoa " + pessoaCadastro.getNome() + " foi cadastrada";
     }
     @GetMapping("/exibirCadastroPessoa")
     public List<PessoaCadastro> exibirPessoa(){
@@ -30,9 +30,34 @@ public class PessoaCadastroController {
     public ResponseEntity<PessoaCadastro> getUsersById(@PathVariable(value = "id") long pessoaId) // Método para buscar uma pessoa pelo ID
                  throws ResourceNotFoundException {
           PessoaCadastro pessoaCadastro = pessoaCadastroRepository // Busca a pessoa pelo ID utilizando o repositório
-                 .findById(String.valueOf(pessoaId)) // Método para buscar pelo ID
+                 .findById(pessoaId) // Método para buscar pelo ID
                  .orElseThrow(() -> new ResourceNotFoundException("Não existe pessoa com o ID: " + pessoaId)); // Lança uma exceção caso a pessoa não seja encontrada
         return ResponseEntity.ok().body(pessoaCadastro); // Retorna a pessoa encontrada com status OK
-
         }
+
+    @DeleteMapping("/excluirCadastroPessoa/{id}")
+    public String excluirCadastroPessoa(@PathVariable(value = "id") long pessoaId)
+                 throws ResourceNotFoundException {
+          PessoaCadastro pessoaCadastro = pessoaCadastroRepository
+                 .findById(pessoaId)
+                 .orElseThrow(() -> new ResourceNotFoundException("Não existe pessoa com o ID: " + pessoaId));
+
+          pessoaCadastroRepository.delete(pessoaCadastro);
+
+        return "O usuário (a) " + pessoaCadastro.getNome() + " foi deletado com sucesso!";
+    }
+
+    @PutMapping("/atualizarCadastroPessoa/")
+    public String atualizarCadastroPessoa(@RequestBody PessoaCadastro pessoaCadastroRequest)
+                 throws ResourceNotFoundException {
+        PessoaCadastro pessoaCadastro = pessoaCadastroRepository
+                .findById(pessoaCadastroRequest.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Não existe pessoa com o ID: " + pessoaCadastroRequest.getNome()));
+
+          pessoaCadastroRepository.save(pessoaCadastroRequest);
+
+        return pessoaCadastroRequest.getNome() + " foi atualizada com sucesso!";
+    }
+
+
 }

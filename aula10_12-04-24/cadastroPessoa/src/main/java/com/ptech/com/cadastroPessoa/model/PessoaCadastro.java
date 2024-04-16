@@ -9,15 +9,22 @@ public class PessoaCadastro {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // Informa que vai gerar automático
     private long id;
-    private static String nome; //colocar STATIC
+    private String nome;
     private String email;
     private String cpf;
 
-    public static String getNome() {
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
         return nome;
     }
-    public static void setNome(String nome) {
-        PessoaCadastro.nome = nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {
